@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    margin-top: 30px;
+    position: relative;
+
+    input {
+        width: 100%;
+        border: 2px solid #b8b8b8;
+        color: #333333;
+        font-size: 0.9rem;
+        font-weight: bold;
+        height: 2.5rem;
+        border-radius: 2rem;
+        border: 2px solid #b8b8b8;
+        padding: 0 1.2rem;
+    }
+
+    label {
+        position: absolute;
+        transform: translateY(50%);
+        margin-left: 10px;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        color:#727070;
+        font-weight: bold;
+    }
+
+    .labelTop {
+        transform: translateY(-150%);
+        font-size: 0.9rem;
+        color: grey;
+    }
+}
+
+
+.input{
+    color: #333333;
+}

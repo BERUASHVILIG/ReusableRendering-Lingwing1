@@ -1,0 +1,192 @@
+.socialNetworkWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.socialNetworkContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 1.5rem;
+    flex-wrap: wrap
+}
+.socialNetwork {
+    display: flex;
+    width: 6.5rem;
+    height: 3rem;
+    cursor: pointer;
+}
+
+.networkTitle {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #828282;
+    margin-top: 2rem;
+}
+
+.networkLeft {
+    width: 3rem;
+    height: 2.5rem;
+    border-radius: 2rem 0 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.networkRight {
+    width: 3rem;
+    border-top: 2px solid #a8a9ab;
+    border-bottom: 2px solid #a8a9ab;
+    border-right: 2px solid #a8a9ab;
+    border-radius: 0 2rem 2rem 0;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.newsGenderContainer {
+    display: flex;
+    align-items: center;
+    gap: 7rem;
+    font-size: 1rem;
+}
+
+.subtitle {
+    color: #828282;
+    font-size: 1rem;
+}
+
+.switches {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+    .switch {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+
+        .slider {
+            transition: 1s;
+            background-color: #eaeaea;
+            border-radius: 2rem;
+            cursor: pointer;
+            transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+            position: relative;
+            width: 4rem;
+            height: 1.7rem;
+
+            &::after {
+                content: "";
+                display: flex;
+                top: 0.3rem;
+                left: 0.3rem;
+                width: 1rem;
+                height: 1rem;
+                background-color: white;
+                border-radius: 2rem;
+                position: absolute;
+                will-change: left, background-color;
+                transition: 0.5s;
+            }
+        }
+
+        & input[type="checkbox"]:checked + .slider {
+            background-color: #692e96;
+            transition: 0.5s;
+        }
+
+        & input[type="checkbox"]:checked + .slider::after {
+            left: 40px;
+            transition: 0.5s;
+        }
+
+        & input[type="checkbox"] {
+            display: none;
+            transition: 0.5s;
+        }
+
+        label {
+            font-family: SegoeUI;
+            color: grey;
+        }
+    }
+}
+
+.changePassword {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 25px;
+}
+
+.passwordTitle {
+    color: #828282;
+}
+
+.submitForm {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.agree {
+    position: absolute;
+    bottom: 5;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    width: 100%;
+
+    input[type="checkbox"] {
+        accent-color: #692e96;
+        width: 1.2rem;
+        height: 1.2rem;
+        cursor: pointer;
+    }
+
+    p {
+        color: #828282;
+        font-weight: bold;
+
+        a {
+            text-decoration: none;
+            color: #692e96;
+        }
+    }
+}
+
+.submitBtn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 2rem;
+    padding: 0 2rem;
+    height: 3rem;
+    border: 2rem;
+    background-color: #692e96;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+
+
+
+@media screen and (max-width:770px) {
+    .socialNetworkWrapper{
+        align-items: center;
+    }
+    .agree{
+        width: 60%;
+        margin-top: 15%;
+    }
+    .submitBtn{
+        margin: 1rem;
+        padding: 0 1rem;
+    }
+}
