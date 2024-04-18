@@ -21,6 +21,7 @@ const InputsDrawer = ({ profileObj, handleChange }: any) => {
         <DateComponent
           key={childObj.name}
           childObj={childObj}
+          profileObj={profileObj}
           handleChange={handleChange}
         />
       );
@@ -40,7 +41,11 @@ const InputsDrawer = ({ profileObj, handleChange }: any) => {
           case "input":
             inputField = (
               <div key={childObj.name}>
-                <CustomInput childObj={childObj} handleChange={handleChange} />
+                <CustomInput
+                  childObj={childObj}
+                  profileObj={profileObj}
+                  handleChange={handleChange}
+                />
               </div>
             );
             index++;
@@ -55,7 +60,7 @@ const InputsDrawer = ({ profileObj, handleChange }: any) => {
           case "select":
             inputField = (
               <div key={childObj.name}>
-                <Select childObj={childObj} handleChange={handleChange} />
+                <Select childObj={childObj} profileObj={profileObj} handleChange={handleChange} />
               </div>
             );
             break;

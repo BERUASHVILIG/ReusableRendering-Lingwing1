@@ -1,14 +1,15 @@
 import style from "./Select.module.scss";
-const Select = ({ childObj, handleChange }: any) => {
+const Select = ({profileObj, childObj, handleChange }: any) => {
   const { name, placeholder, inputValue, options } = childObj;
+  
   return (
     <div className={style.selectContainer} key={name}>
       <label>{placeholder}</label>
       <select
         className={style.select}
         name={name}
-        value={inputValue}
-        onChange={handleChange}
+        defaultValue={inputValue}
+        onChange={(e:any) => handleChange(profileObj, name, e.target.value)}
       >
         {options.map((option: any) => {
           const [key, value] = Object.entries(option)[0];

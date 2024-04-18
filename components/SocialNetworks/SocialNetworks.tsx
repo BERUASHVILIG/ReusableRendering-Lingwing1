@@ -3,6 +3,7 @@ import style from "./SocialNetworks.module.scss";
 import { socialNetwork } from "@/utils/socialNetworks";
 import arrow from "@/public/images/arrow-right-white-v2.png";
 import lock from "@/public/images/lock.png";
+import { initialValue } from "@/utils/initialValue";
 
 const SocialNetworks = ({ maleFemaleObj, handleChange }: any) => {
   const obj = Object?.entries(maleFemaleObj).map((item: any, index: any) => {
@@ -18,7 +19,7 @@ const SocialNetworks = ({ maleFemaleObj, handleChange }: any) => {
                 type={inputType}
                 name={name}
                 value={value as any}
-                onChange={handleChange}
+                onChange={(e:any)=>handleChange(maleFemaleObj,name,e.target.value)}
               />
               <label htmlFor={key}>{value as any}</label>
             </div>
@@ -92,7 +93,7 @@ const SocialNetworks = ({ maleFemaleObj, handleChange }: any) => {
             I agree with the <a href="">direct marketing</a> policy
           </p>
         </div>
-        <button className={style.submitBtn}>Save changes</button>
+        <button className={style.submitBtn} onClick={()=>console.log(initialValue)}>Save changes</button>
       </div>
     </div>
   );
