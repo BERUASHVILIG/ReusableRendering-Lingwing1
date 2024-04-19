@@ -1,7 +1,7 @@
 import style from "./Select.module.scss";
-const Select = ({profileObj, childObj, handleChange }: any) => {
-  const { name, placeholder, inputValue, options } = childObj;
-  
+const Select = ({ profileObj, childObj, handleChange }: CustomCompProps) => {
+  const { name, placeholder, inputValue, options }:InputObjectType = childObj;
+
   return (
     <div className={style.selectContainer} key={name}>
       <label>{placeholder}</label>
@@ -9,9 +9,11 @@ const Select = ({profileObj, childObj, handleChange }: any) => {
         className={style.select}
         name={name}
         defaultValue={inputValue}
-        onChange={(e:any) => handleChange(profileObj, name, e.target.value)}
+        onChange={(e: SelectEventType) =>
+          handleChange(profileObj, name, e.target.value)
+        }
       >
-        {options.map((option: any) => {
+        {options?.map((option: any) => {
           const [key, value] = Object.entries(option)[0];
 
           return (

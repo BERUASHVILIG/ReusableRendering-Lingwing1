@@ -2,9 +2,13 @@
 import { useState } from "react";
 import style from "./CustomInput.module.scss";
 
-const CustomInput = ({ profileObj, childObj, handleChange }: any) => {
-  const { name, inputValue, type, placeholder } = childObj;
-  const [focused, setFocused] = useState(false);
+const CustomInput = ({
+  profileObj,
+  childObj,
+  handleChange,
+}: CustomCompProps) => {
+  const { name, type, placeholder, inputValue }: InputObjectType = childObj;
+  const [focused, setFocused] = useState<boolean>(false);
 
   const handleFocus = () => {
     setFocused(true);
@@ -27,7 +31,9 @@ const CustomInput = ({ profileObj, childObj, handleChange }: any) => {
         type={type}
         name={name}
         defaultValue={inputValue}
-        onChange={(e:any) => handleChange(profileObj, name, e.target.value)}
+        onChange={(e: InputEventType) =>
+          handleChange(profileObj, name, e.target.value)
+        }
         onFocus={handleFocus}
         onBlur={handleBlur}
       />

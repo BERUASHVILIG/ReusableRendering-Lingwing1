@@ -6,7 +6,13 @@ import Select from "../Select/Select";
 import Textarea from "../Textarea/Textarea";
 import RadioInput from "../RadioInput/RadioInput";
 
-const InputsDrawer = ({ profileObj, handleChange }: any) => {
+const InputsDrawer = ({
+  profileObj,
+  handleChange,
+}: {
+  profileObj: InitialValue;
+  handleChange: HandleChangeFunction;
+}) => {
   const renderInputs = (profileObj: InitialValue) => {
     let selectDateInputs: JSX.Element[] = [];
     let index = 0;
@@ -42,7 +48,7 @@ const InputsDrawer = ({ profileObj, handleChange }: any) => {
             inputField = (
               <div key={childObj.name}>
                 <CustomInput
-                  childObj={childObj}
+                  childObj={childObj as InputObjectType}
                   profileObj={profileObj}
                   handleChange={handleChange}
                 />
@@ -52,7 +58,11 @@ const InputsDrawer = ({ profileObj, handleChange }: any) => {
             break;
           case "textarea":
             inputField = (
-              <Textarea childObj={childObj} handleChange={handleChange} />
+              <Textarea
+                childObj={childObj as InputObjectType}
+                profileObj={profileObj}
+                handleChange={handleChange}
+              />
             );
 
             index++;
@@ -60,14 +70,18 @@ const InputsDrawer = ({ profileObj, handleChange }: any) => {
           case "select":
             inputField = (
               <div key={childObj.name}>
-                <Select childObj={childObj} profileObj={profileObj} handleChange={handleChange} />
+                <Select
+                  childObj={childObj}
+                  profileObj={profileObj}
+                  handleChange={handleChange}
+                />
               </div>
             );
             break;
           case "radio":
             inputField = (
               <div key={childObj.name}>
-                <RadioInput childObj={childObj} handleChange={handleChange} />
+                <RadioInput childObj={childObj} profileObj={profileObj} handleChange={handleChange} />
               </div>
             );
             break;

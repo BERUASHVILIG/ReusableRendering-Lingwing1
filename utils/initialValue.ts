@@ -1,4 +1,4 @@
-export const initialValue: any = {
+export const initialValue: InitialValue = {
   firstName: {
     inputType: "input",
     type: "text",
@@ -34,7 +34,7 @@ export const initialValue: any = {
     name: "age",
     placeholder: "age",
     inputValue: "",
-    options: [{ 1: 2002 }, { 2: 2003 }, { 3: 2004 }, { 4: 2005 }],
+    options: [{ 1: "2002" }, { 2: "2003" }, { 3: "2004" }, { 4: "2005" }],
   },
   month: {
     inputType: "selectDate",
@@ -64,18 +64,18 @@ export const initialValue: any = {
     placeholder: "date",
     inputValue: "",
     options: [
-      { 1: 1 },
-      { 2: 2 },
-      { 3: 3 },
-      { 4: 4 },
-      { 5: 5 },
-      { 6: 6 },
-      { 7: 7 },
-      { 8: 8 },
-      { 9: 9 },
-      { 10: 10 },
-      { 11: 11 },
-      { 12: 12 },
+      { 1: "1" },
+      { 2: "2" },
+      { 3: "3" },
+      { 4: "4" },
+      { 5: "5" },
+      { 6: "6" },
+      { 7: "7" },
+      { 8: "8" },
+      { 9: "9" },
+      { 10: "10" },
+      { 11: "11" },
+      { 12: "12" },
     ],
   },
   country: {

@@ -5,23 +5,32 @@ import arrow from "@/public/images/arrow-right-white-v2.png";
 import lock from "@/public/images/lock.png";
 import { initialValue } from "@/utils/initialValue";
 
-const SocialNetworks = ({ maleFemaleObj, handleChange }: any) => {
-  const obj = Object?.entries(maleFemaleObj).map((item: any, index: any) => {
+const SocialNetworks = ({
+  maleFemaleObj,
+  handleChange,
+}: {
+  maleFemaleObj: InitialValue;
+  handleChange: HandleChangeFunction;
+}) => {
+  const obj = Object?.entries(maleFemaleObj).map((item: any, index: number) => {
+    console.log({item},"item")
     const { inputType, name } = item[1];
 
     return (
       <div key={index}>
-        {item[1].options?.map((option: any, index: any) => {
+        {item[1].options?.map((option: any, index: number) => {
           const [key, value] = Object?.entries(option)[0];
           return (
             <div key={index} className={style.gender}>
               <input
                 type={inputType}
                 name={name}
-                value={value as any}
-                onChange={(e:any)=>handleChange(maleFemaleObj,name,e.target.value)}
+                value={value as string}
+                onChange={(e: InputEventType) =>
+                  handleChange(maleFemaleObj , name, e.target.value)
+                }
               />
-              <label htmlFor={key}>{value as any}</label>
+              <label htmlFor={key}>{value as string}</label>
             </div>
           );
         })}
@@ -93,7 +102,12 @@ const SocialNetworks = ({ maleFemaleObj, handleChange }: any) => {
             I agree with the <a href="">direct marketing</a> policy
           </p>
         </div>
-        <button className={style.submitBtn} onClick={()=>console.log(initialValue)}>Save changes</button>
+        <button
+          className={style.submitBtn}
+          onClick={() => console.log(initialValue)}
+        >
+          Save changes
+        </button>
       </div>
     </div>
   );

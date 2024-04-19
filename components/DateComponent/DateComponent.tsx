@@ -1,7 +1,10 @@
 import style from "./DateComponent.module.scss";
-const DateComponent = ({ profileObj, childObj, handleChange }: any) => {
+const DateComponent = ({
+  profileObj,
+  childObj,
+  handleChange,
+}: CustomCompProps) => {
   const { name, inputValue, options } = childObj;
-  
 
   const className = `${style.selectContainer} ${
     name === "age" ? style.ageSelect : ""
@@ -14,11 +17,11 @@ const DateComponent = ({ profileObj, childObj, handleChange }: any) => {
         className={className}
         name={name}
         defaultValue={inputValue}
-        onChange={(e: any) =>
-          handleChange(profileObj, e.target.name, e.target.value)
+        onChange={(event: SelectEventType) =>
+          handleChange(profileObj, name, event.target.value)
         }
       >
-        {options.map((option: any) => {
+        {options.map((option: string) => {
           const [key, value] = Object.entries(option)[0];
           return (
             <option key={key} value={value as string}>

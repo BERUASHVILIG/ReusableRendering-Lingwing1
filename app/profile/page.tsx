@@ -9,7 +9,7 @@ const Profile = () => {
   const profileObj: InitialValue = {};
   const maleFemaleObj: InitialValue = {};
 
-  const updateInput = (obj: any, name: any, val: any) => {
+  const updateInput = (obj: InitialValue, name: string, val: string) => {
     Object.keys(obj).forEach((key) => {
       if (obj[key].name === name) {
         obj[key].inputValue = val;

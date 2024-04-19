@@ -7,8 +7,8 @@ import style from "./ImageComponent.module.scss";
 const ImageComponent = () => {
   const [imageSrc, setImageSrc] = useState(profileImg);
 
-  const handleFileChange = (event: any) => {
-    const file = event.target.files[0];
+  const handleFileChange = (event: InputEventType) => {
+    const file = event.target.files?.[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
